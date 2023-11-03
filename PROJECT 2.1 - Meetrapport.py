@@ -96,4 +96,4 @@ HOEVEELHEID_KALIUM_40 = 0.0117 * HOEVEELHEID_KALIUM
 print('Massa kalium-40 =', HOEVEELHEID_KALIUM_40, 'mg')
 BETROUWBAARHEID_2 = BETROUWBAARHEID * MASSA_ZOUT_MENGSEL * 0.0117
 print('Betrouwbaarheid massa kalium-40 =', BETROUWBAARHEID_2, 'mg')
-print('Betrouwbaarheidsinterval massa kalium-40 =', HOEVEELHEID_KALIUM_40, '+-', BETROUWBAARHEID_2)
+print('Betrouwbaarheidsinterval massa kalium-40 =', HOEVEELHEID_KALIUM_40, '+-', BETROUWBAARHEID_2, 'mg')
