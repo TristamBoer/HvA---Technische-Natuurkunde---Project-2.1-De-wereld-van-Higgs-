@@ -88,3 +88,12 @@ t = stats.t.ppf(1 - ALPHA/2, VRIJHEIDSGRADEN)
 BETROUWBAARHEID = (t * s) / np.sqrt(len(x))
 print('Betrouwbaarheid =', BETROUWBAARHEID)
 print('De betrouwbaarheidsinterval =', GEM_x, '+-', BETROUWBAARHEID)
+
+# Berekenen hoeveelheid Kalium-40 van een onbekende stof
+MASSA_ZOUT_MENGSEL = 10
+HOEVEELHEID_KALIUM = GEM_x * MASSA_ZOUT_MENGSEL
+HOEVEELHEID_KALIUM_40 = 0.0117 * HOEVEELHEID_KALIUM
+print('Massa kalium-40 =', HOEVEELHEID_KALIUM_40, 'mg')
+BETROUWBAARHEID_2 = BETROUWBAARHEID * MASSA_ZOUT_MENGSEL * 0.0117
+print('Betrouwbaarheid massa kalium-40 =', BETROUWBAARHEID_2, 'mg')
+print('Betrouwbaarheidsinterval massa kalium-40 =', HOEVEELHEID_KALIUM_40, '+-', BETROUWBAARHEID_2)
