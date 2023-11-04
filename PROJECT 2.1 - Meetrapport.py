@@ -73,27 +73,18 @@ plt.legend()
 plt.grid()
 plt.show()
 
-# Berekenen massa% van een onbekende stof
+# Berekenen massa% kalium van een onbekende stof
 VERVALREEKSEN = np.array([52, 58, 63, 52, 58])
 y = (VERVALREEKSEN / (MINUTEN * SECONDEN)) - A_achtergrond
-x = (y - b1) / a1
-print('Berekende massa% KCl =', x)
-GEM_x = np.mean(x)
-print('Gemiddelde massa% KCl =', GEM_x)
+x = ((y - b1) / a1) * 0.522
+GEM_KALIUM = np.mean(x)
 s = np.std(x, ddof=1)
-print('Standaarddeviatie massa% KCl =',s)
 ALPHA = 0.05
 VRIJHEIDSGRADEN = len(x) - 1
 t = stats.t.ppf(1 - ALPHA/2, VRIJHEIDSGRADEN)
 BETROUWBAARHEID = (t * s) / np.sqrt(len(x))
-print('Betrouwbaarheid =', BETROUWBAARHEID)
-print('De betrouwbaarheidsinterval =', GEM_x, '+-', BETROUWBAARHEID)
 
-# Berekenen hoeveelheid Kalium-40 van een onbekende stof
-MASSA_ZOUT_MENGSEL = 10
-HOEVEELHEID_KALIUM = GEM_x * MASSA_ZOUT_MENGSEL
-HOEVEELHEID_KALIUM_40 = 0.5227 * HOEVEELHEID_KALIUM * MASSA_ZOUT_MENGSEL
-print('Massa kalium-40 =', HOEVEELHEID_KALIUM_40, 'mg')
-BETROUWBAARHEID_2 = BETROUWBAARHEID * MASSA_ZOUT_MENGSEL * 0.5227
-print('Betrouwbaarheid massa kalium-40 =', BETROUWBAARHEID_2, 'mg')
-print('Betrouwbaarheidsinterval massa kalium-40 =', HOEVEELHEID_KALIUM_40, '+-', BETROUWBAARHEID_2, 'mg')
+print('Gemiddelde massa% Kalium =', GEM_KALIUM, '%')
+print('Standaarddeviatie massa% KCl =', s, "%")
+print('Betrouwbaarheid massa% =', BETROUWBAARHEID, '%')
+print('Betrouwbaarheidsinterval massa% =', GEM_KALIUM, '+-', BETROUWBAARHEID, '%')
